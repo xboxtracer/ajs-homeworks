@@ -1,166 +1,33 @@
-# Домашнее задание к лекции «Рабочее окружение»
+# Webpack Frontend Starterkit
 
-**Важно**: каждая задача выполняется в виде отдельного проекта с собственным GitHub репозиторием.
+[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
 
-В личном кабинете на сайте [netology.ru](http://netology.ru/) в поле комментария к домашней работе вставьте ссылки на ваш GitHub-проекты.
+A lightweight foundation for your next webpack based frontend project.
 
----
+### Installation
 
-## npm package
-
-### Легенда
-
-Итак, вы решили организовать разработку игры с использованием правильных инструментов, а именно что проект нужно создавать с помощью `npm`, управлять зависимостями и сборкой тоже с его помощью. 
-
-### Описание
-
-Создайте проект на GitHub-проект, после чего с помощью `npm init` сгенерируйте package:
-1. package name - defender-game
-1. version - 1.0.0
-1. description - "Browser based game"
-1. entry point - index.js
-1. test command - оставьте пустым
-1. git repository - URL вашего GitHub репозитория 
-1. keywords - game
-1. author - ваше имя или псевдоним
-1. license - ISC
-
-Добавьте `.gitignore` из набора github: [https://github.com/github/gitignore/blob/master/Node.gitignore](https://github.com/github/gitignore/blob/master/Node.gitignore).
-
----
-
-## Babel
-
-### Легенда
-
-Как вы уже видели, некоторые проекты требуют для своей работы совместимости с текущей поддерживаемой версией языка. Но при этом есть большое желание использовать новейшие возможности ES. И для этого есть специальный инструмент, который позволяет осуществлять компиляцию кода на ES6+ в поддерживаемые на данный момент возможности - [Babel](https://babeljs.io). Поэтому вы приняли следующее решение: писать всё на новейшей версии языка и с помощью Babel обеспечить себе наибольшее количество пользователей.
-
-### Описание
-
-Ваша задача подключить Babel к проекту и настроить сборку с его использованием.
-
-1. Установите Babel (`npm install --save-dev @babel/core @babel/cli @babel/preset-env`).
-2. Установите CoreJS (`npm install core-js@3`).
-
-2. Настройте скрипт запуска `build` для сборки с помощью `npm`. Для этого в секции `scripts` файла `package.json` пропишите:
-```json
-{
-    ...
-    "scripts": {
-        ...
-        "build": "babel src -d dist"
-        ...
-    }
-}
+```
+npm install
 ```
 
-3. Создайте конфиг `.babelrc` и пропишите `@babel/preset-env`:
-```javascript
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "useBuiltIns": "usage",
-        "corejs": 3
-      }
-    ]
-  ]
-}
+### Start Dev Server
+
+```
+npm start
 ```
 
-4. Создайте файл `src/app.js` со следующим содержимым:
-```javascript
-const characters = [
-  {name: 'мечник', health: 10},
-  {name: 'маг', health: 100},
-  {name: 'маг', health: 0},
-  {name: 'лучник', health: 0},
-];
+### Build Prod Version
 
-const alive = characters.filter(item => item.health > 0);
+```
+npm run build
 ```
 
-5. Удостоверьтесь, что проект собирается, если в консоли запустить команду `npm run build`, и в каталоге `dist` формируется преобразованный Babel код.
+### Features:
 
-6. Добавьте каталог `dist` в `.gitignore`.
+- ES6 Support via [babel](https://babeljs.io/) (v7)
+- JavaScript Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
+- SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
+- Autoprefixing of browserspecific CSS rules via [postcss](https://postcss.org/) and [autoprefixer](https://github.com/postcss/autoprefixer)
+- Style Linting via [stylelint](https://stylelint.io/)
 
----
-
-## ESLint (задача со звёздочкой)
-
-**Важно**: данная задача не является обязательной 
-
-### Легенда
-
-Очень важно следить за качеством кода в вашем проекте и следовать единым принципам кодирования в команде. В этом нам поможет ещё один инструмент - ESLint.
-
-### Описание
-
-Ваша задача «прикрутить» ESLint к проекту и настроить работу с его использованием.
-
-Установка:
-```shell
-npm install --save-dev eslint
-npx eslint --init
-```
-
-
-При инициализации конфиг-файла выберите те же опции, что указаны в лекции:
-* How would you like to use ESLint? *To check syntax, find problems, and enforce code style*
-* What type of modules does your project use? *JavaScript modules (import/export)*
-* Which framework does your project use? *None of this*
-* Where does your code run? *Browser*
-* How would you like to define a style for your project? *Use a popular style guide*
-* Which style guide do you want to follow? *Airbnb*
-* What format do you want your config file to be in? *JSON*
-* Would you like to install them now with npm? *Y*
-
-Настройте скрипт запуска `lint` для `npm`. Для этого в секции `scripts` файла `package.json` пропишите:
-```json
-{
-    ...
-    "scripts": {
-        ...
-        "lint": "eslint ."
-        ...
-    }
-}
-```
-
-Создайте файл `src/app.js` со следующим содержимым:
-```javascript
-const characters = [
-  {name: 'мечник', health: 10},
-  {name: 'маг', health: 100},
-  {name: 'маг', health: 0},
-  {name: 'лучник', health: 0}
-];
-
-const alive = characters.filter(item => item.health > 0);
-```
-
-Содержимое `.eslintignore`:
-```
-dist
-```
-
-Содержимое `.eslintrc.json`:
-```json
-{
-    "extends": "airbnb-base",
-    "env": {
-        "es6": true,
-        "browser": true
-    },
-    "rules": {
-        "no-restricted-syntax": [
-            "error",
-            "LabeledStatement",
-            "WithStatement"
-        ]
-   }
-}
-```
-
-Запустите ESLint и удостоверьтесь, что вам показываются ошибки стиля. Исправьте их, затем снова запустите ESLint и удостоверьтесь, что исправлены все ошибки проверки стиля.
+When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
