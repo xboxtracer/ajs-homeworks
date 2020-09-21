@@ -1,9 +1,10 @@
 {
-  "name": "webpacktest",
+  "name": "defender-game",
   "version": "1.0.0",
-  "description": "game",
+  "description": "Browser based game",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint .",
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
     "start:dev": "webpack-dev-server",
@@ -19,6 +20,7 @@
   "author": "Elias",
   "license": "ISC",
   "devDependencies": {
+    "@babel/cli": "^7.11.6",
     "@babel/core": "^7.11.6",
     "@babel/preset-env": "^7.11.5",
     "babel-core": "^6.26.3",
@@ -29,6 +31,12 @@
     "mini-css-extract-plugin": "^0.11.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^3.3.12",
-    "webpack-dev-server": "^3.11.0"
+    "webpack-dev-server": "^3.11.0",
+    "eslint": "^7.9.0",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-plugin-import": "^2.22.0"
+  },
+  "dependencies": {
+    "core-js": "^3.6.5"
   }
 }
