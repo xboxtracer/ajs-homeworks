@@ -2,11 +2,11 @@ import Character from './domain.js'
 
 export default class Game {
     start() {
-      console.log('game started');
+      console.log('game started')
     }
 }
 
-export class GameSavingData {
+class GameSavingData {
 }
 
 function readGameSaving() {
@@ -15,7 +15,4 @@ function readGameSaving() {
 function writeGameSaving() {
 }
 
-const newGame = new Game()
-export default newGame
-
-export {readGameSaving, writeGameSaving}
+export {readGameSaving, writeGameSaving, GameSavingData}

@@ -1,4 +1,4 @@
 import './css/style.css'
-import './js/app.js'
+import './js/app'
 
-// console.log('Hellou Uorld');
+console.log('Hellou Uorld');
