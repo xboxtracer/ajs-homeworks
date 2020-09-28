@@ -40,8 +40,9 @@ test('check for hp critical', () => {
 
   expect(hp).toBe(expected);
 });
+
 test('check for players sort', () => {
-  const hp = srotingByHp([
+  const hpArr = srotingByHp([
     {name: 'мечник', health: 10},
     {name: 'маг', health: 100},
     {name: 'лучник', health: 80},
@@ -52,5 +53,12 @@ test('check for players sort', () => {
     {name: 'мечник', health: 10},
   ];
 
-  expect(hp).toEqual(expected);
+  expect(hpArr).toEqual(expected);
+});
+
+test('check for players undef', () => {
+  const hpArrUndef = srotingByHp(5);
+  const expected = 'not necesary';
+
+  expect(hpArrUndef).toBe(expected);
 });
