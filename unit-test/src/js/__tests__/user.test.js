@@ -1,6 +1,6 @@
 import { loadUser } from '../user';
 import { httpGet } from '../http';
-import { hpBar } from '../app';
+import { hpBar, srotingByHp } from '../app';
 
 jest.mock('../http');
 
@@ -39,4 +39,18 @@ test('check for hp critical', () => {
   const expected = 'not necesary';
 
   expect(hp).toBe(expected);
+});
+test('check for players sort', () => {
+  const hp = srotingByHp([
+    {name: 'мечник', health: 10},
+    {name: 'маг', health: 100},
+    {name: 'лучник', health: 80},
+  ]);
+  const expected = [
+    {name: 'маг', health: 100},
+    {name: 'лучник', health: 80},
+    {name: 'мечник', health: 10},
+  ];
+
+  expect(hp).toEqual(expected);
 });

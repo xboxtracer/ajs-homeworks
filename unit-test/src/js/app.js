@@ -16,6 +16,13 @@ export function hpBar(obj) {
   } else if (!obj.health) {
     result = 'not necesary';
   }
-  
+
   return result;
+}
+
+export function srotingByHp(arr) {
+    arr.sort(function(a, b){
+        return b.health - a.health
+    })
+    return arr
 }
