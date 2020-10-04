@@ -31,12 +31,12 @@ export function srotingByHp(arr) {
     return arr
 }
 
-let a = new Bowerman({
-  name: '111'
-})
-let c = new Swordsman({
-  name: 's'
-})
+// let a = new Bowerman({
+//   name: '111'
+// })
+// let c = new Swordsman({
+//   name: 's'
+// })
 
 // console.log(a);
 // a.levelUp();
