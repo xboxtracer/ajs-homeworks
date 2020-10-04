@@ -1,6 +1,18 @@
 import { Bowerman, Swordsman, Magician, Undead, Zombie, Daemon } from '../characters';
 
 
+test('check for Magician name', () => {
+    const mage = new Magician({ name: 'Маг'});
+    expect(mage.name).toBe('Маг');
+});
+test('check for Magician name min length', () => {
+    const mage = new Magician({ name: 'М'});
+    expect(mage.name).toBe(undefined);
+});
+test('check for Magician name max length', () => {
+    const mage = new Magician({ name: 'Магический юнит'});
+    expect(mage.name).toBe(undefined);
+});
 test('check for Magician attack', () => {
     const mage = new Magician({ name: 'Маг'});
     expect(mage.attack).toBe(10);
