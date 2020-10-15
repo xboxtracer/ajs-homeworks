@@ -23,5 +23,3 @@ export function changePhoneNumber(phoneNumber) {
     })
     return a
 }
-
-// console.log(changePhoneNumber('+7 (906) 654 40-40'))
