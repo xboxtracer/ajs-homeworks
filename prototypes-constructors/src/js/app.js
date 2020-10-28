@@ -2,8 +2,6 @@
 import sum from './basic';
 import { Bowerman, Swordsman, Magician, Undead, Zombie, Daemon } from './characters';
 
-// console.log(Bowerman);
-
 console.log(sum([1, 2]));
 
 export function hpBar(obj) {
@@ -17,7 +15,6 @@ export function hpBar(obj) {
   } else if (!obj.health) {
     result = 'not necesary';
   }
-
   return result;
 }
 
@@ -30,16 +27,3 @@ export function srotingByHp(arr) {
     })
     return arr
 }
-
-// let a = new Bowerman({
-//   name: '111'
-// })
-// let c = new Swordsman({
-//   name: 's'
-// })
-
-// console.log(a);
-// a.levelUp();
-// a.damage(10)
-// console.log(a);
-// console.log(c);
