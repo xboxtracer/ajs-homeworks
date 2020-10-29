@@ -10,3 +10,13 @@ export class GameSavingLoader {
         return value
     }
 }
+
+export class PromisedGameSavingLoader {
+  load() {
+    return new Promise(resolve => {
+      resolve(read())
+    })
+      .then(result => json(result))
+      
+  }
+}
