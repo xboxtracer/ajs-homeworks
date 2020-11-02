@@ -3,7 +3,7 @@ import { Magician, ArrayBufferConverter } from '../arraybuffer';
 test('check Magician attack not stoned', () => {
   const mage = new Magician();
 
-  mage.fight(2);
+  mage.distance = 2;
   
   const result = mage.attack;
   const expected = 90;
@@ -15,12 +15,35 @@ test('check Magician stoned attack', () => {
   const mage = new Magician();
 
   mage.stone(true);
-  mage.fight(2);
+  mage.distance = 2;
   
   const result = mage.attack;
   const expected = 85;
 
   expect(result).toBe(expected);
+});
+
+test('check Magician zero distance', () => {
+  const mage = new Magician();
+
+  mage.distance = 0;
+  
+  const result = mage.attack;
+  const expected = new Error ('wrong distance')
+
+  expect(result).toEqual(expected);
+});
+
+test('check Magician stoned attack zero distance', () => {
+  const mage = new Magician();
+
+  mage.stone(true);
+  mage.distance = 0;
+  
+  const result = mage.attack;
+  const expected = new Error ('wrong distance');
+
+  expect(result).toEqual(expected);
 });
 
 test('check ArrayBufferConverter', () => {
